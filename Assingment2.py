@@ -28,6 +28,6 @@ porter = nltk.PorterStemmer()
 text=""
 for word in sres_words:
     text += porter.stem(word) + " "
-outputfile = open("Output_sreshta.txt", "w")
+outputfile = open("Output_sres.txt", "w")
 outputfile.write(text)
 outputfile.close()
