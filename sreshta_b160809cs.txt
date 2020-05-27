@@ -1,0 +1,57 @@
+									ROBERTA:  A  ROBUSTLY  OPTIMIZED  BERT  PRETRAINING APPROACH
+
+										KAMPALLY SRESHTA CHOWDARY, B160809CS
+
+											1.  Summary
+
+	In  recent  years  there  are  a  wide  range  of  research  breakthroughs  in  the  field  of NLP(Natural  Language  Processing)  such  as  machine  translation,  sentiment  analysis,
+text summarization, question answering systems, dialogue systems and so on. The introduction of pretrained language models in NLP pushed forward the limits of Natural Language Understanding and 
+Natural Language Generation.  Many research institutes and companies explored ways to sophisticate the already existing language models.  One such research breakthrough is an improvement of an 
+already existing BERT pretraining model is RoBERTa.
+
+Natural  language  processing  models  have  made  vital  advances  because  of the  introduction  of  pretraining  methods,  however  the  computational  expense  of  training  has made 
+replication and fine-tuning parameters tough.  In a study done by Facebook AI and the University of Washington, researchers analyzed the training of Google's BERT (Bidirectional Encoder 
+Representations from Transformers) model and identified many changes to the training procedure that enhance its performance.  BERT is trained on a combination of BOOK CORPUS and English 
+WIKIPEDIA, that contains 16 GB of uncompressed text. In order to enhance the performance,  the researchers specifically used a new,larger and a novel dataset, CCNEWS (data from the English 
+portion of the Common Crawl News dataset .  The data contains sixty three million English news  articles published between Sept 2016 and Feb 2019.  (76 GB once filtering).) [2],in order to
+verify that using more data for pretraining further enhances the performance on downstream tasks.  The analysis and comparison of few pretrained models and the optimized model on downstream 
+tasks is done using the following 3 benchmarks.
+
+	(1) GLUE The General Language Understanding Evaluation (GLUE) benchmark is a collection of nine datasets.  It is used for evaluating natural language understanding systems.  Tasks are 
+	framed as either single-sentence classification or sentence-pair classification tasks.
+
+	(2) SQuAD The Stanford Question Answering Dataset (SQuAD) provides a paragraph of context and a question. The task is to answer the question by extractingthe relevant span from the context.
+
+	(3) RACE  The  ReAding  Comprehension  from  Examinations  (RACE)  task  is  a large-scale reading comprehension dataset with over twent eight thousand passages and nearly hundred thousand 
+	questions.
+
+Date: 12th May 2020.
+
+
+	The  resulting  optimized  model,  RoBERTa  (Robustly  Optimized  BERT  Approach), matched and exceeded the scores of the then recently introduced XLNet [3] model on the GLUE benchmark. [1]
+
+where MNLI, QNLI, QQP, RTE, SST, MRPC, CoLA, STS, WNLI are the nine individual tasks on GLUE benchmark.
+
+	The crux of the paper is that the Facebook AI research team found that BERT was significantly undertrained and suggested an improved instruction for its  training, called RoBERTa.  RoBERTa
+ uses 160 GB dataset instead of the 16 GB dataset originally used to train BERT. It is also trained for longer time,  increasing the number of iterations initially from 100K to 300K and then 
+further upto 500K and has larger batches i.e:- 8,000  instead  of  256  within  the  original  BERT  base  model.   It  has  larger  byte-level BPE vocabulary with 50,000 subword units rather than 
+character-level BPE vocabulary with 30,000 subword units.  RoBERTa removes the Next Sequence Prediction(NSP, is a binary classification loss for predicting whether two segments follow each other 
+in the original text.)  objective from the training procedure whereas the NSP loss was known to be an important factor in training the original BERT model.  RoBERTa dynamically changes the 
+masking pattern applied to the training data.
+
+	The key achievements are that RoBERTa exceeds BERT in all individual tasks on the General Language Understanding Evaluation (GLUE) benchmark.  It also matches the then recently introduced 
+XLNet model on the GLUE benchmark and sets a new state of the art in 4 out of 9 individual tasks as shown in the above table.
+
+	Massive pretrained  language  frameworks  like RoBERTa  can be leveraged within the business setting for a wide range of downstream tasks, together with dialogue systems, question 
+answering, document classification, etc.  The future research areas could be on Incorporating more sophisticated multi-task finetuning procedures.
+
+
+											References
+
+[1]  Yinhan  Liu  Luke  Zettlemoyer  Omer  Levy  Myle  Ott  Naman  Goyal  Jingfei  Du  Mike  Lewis Veselin  Stoyanov  Mandar  Joshi,  Danqi  Chen.  Roberta:  :  A  robustly  optimized  
+bert  pretraining approach. 2019.
+
+[2]  Sebastian Nagel. Ccnews dataset, 2016.
+
+[3]  Yiming  Yang  Jaime  Carbonell  Ruslan  Salakhutdinov  Zhilin  Yang,  Zihang  Dai  and  Quoc  V  Le. Xlnet:  Generalized autoregressive pretraining for language understanding. 2019.
+
